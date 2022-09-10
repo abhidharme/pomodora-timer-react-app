@@ -19,8 +19,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import Navbar from './Navbar';
 
 function Login() {
-     const clientId = '278749450215-k990eaidq0s64t910t8o6s21kq5rvpj6.apps.googleusercontent.com';
-   // const clientId = "1074677429721-p9l7hujj4cqpacbjra55hrqo0mld4t52.apps.googleusercontent.com";
+     const clientId = '542698749200-br0kfduh9pu6tm1t8sqq48q218vmn437.apps.googleusercontent.com';
+
 
     const dispatch = useDispatch();
   
@@ -159,7 +159,7 @@ function Login() {
 }
 export default Login;
 
-export const Blur = (props: IconProps) => {
+export const Blur = (props:IconProps) => {
     return (
         <Icon
             width={useBreakpointValue({ base: '100%', md: '40vw', lg: '30vw' })}

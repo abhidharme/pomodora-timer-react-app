@@ -1,0 +1,39 @@
+
+
+.blink {
+    font-size: 1.5em;
+    font-family: cursive;
+    color: magenta;
+    text-align: center;
+    animation: animate 
+        1.5s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+#rotate_img{
+    position: relative;
+    animation: rotate 10s linear infinite;
+}
+@keyframes rotate{
+    0%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(180deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
