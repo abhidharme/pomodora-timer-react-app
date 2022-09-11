@@ -1,15 +1,7 @@
-
-export const LOGOUT_REQUEST = "LOGOUT_REQUEST";
-
-
-export const logout_request_Success = (payload) => ({
-    type: LOGOUT_REQUEST,
-    payload
-})
-
+//Action type for profile data
 export const PROFILE_DATA = "PROFILE_DATA";
 
-
+//Action creator for profile data
 export const profile_data_Success = (payload) => ({
     type: PROFILE_DATA,
     payload

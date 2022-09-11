@@ -8,7 +8,6 @@ import {
     CircularProgressLabel,
     Heading,
     Text,
-    useBreakpointValue,
 } from '@chakra-ui/react';
 import './TimerDisplay.css';
 
@@ -42,7 +41,7 @@ export default function TimerDisplay({minute_Time,second_Time,breakTime,pauseTim
                 <CircularProgress boxShadow={
                     '0px 1px 25px -5px rgb(66 153 225 / 100%), 0 10px 10px -5px rgb(66 153 225 / 43%)'}
                   color='rgb(66, 153, 225)'
-                   value={circle}
+                   value={circle} 
                     size='200px'
                      thickness='4px'
                      borderRadius={'full'}>
@@ -52,6 +51,7 @@ export default function TimerDisplay({minute_Time,second_Time,breakTime,pauseTim
                 {breakTime && <div className='blink'>5 min Break Time!</div>}
 
                 <Stack mt={8} direction={'row'} spacing={4}>
+                {/*Pause Button*/}
                     <Button
                         flex={1}
                         fontSize={'sm'}
@@ -71,6 +71,7 @@ export default function TimerDisplay({minute_Time,second_Time,breakTime,pauseTim
                         onClick={handlePause}>
                         {pauseTime ? 'PAUSE' : 'START'}
                     </Button>
+                {/*Reset Button*/}
                     <Button
                         flex={1}
                         fontSize={'sm'}

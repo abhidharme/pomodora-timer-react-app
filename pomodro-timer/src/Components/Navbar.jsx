@@ -7,23 +7,25 @@ import {
     Button,
     Text,
     useColorModeValue,
-    useColorMode,
-    useDisclosure
+    useColorMode
 } from '@chakra-ui/react';
 import { useSelector } from 'react-redux';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 
 
-export default function Navbar({handleLogout}) {
+export default function Navbar({handleLogoutSuccess}) {
     const { colorMode, toggleColorMode } = useColorMode();
-  const { isOpen, onOpen, onClose } = useDisclosure();
 
-const profiles = useSelector((state)=>state.profile_data)
+    // take profile image and name from redux store
+const {profile_img} = useSelector((state)=>state.profile_data)
+const {profile_name} = useSelector((state)=>state.profile_data);
+
 
     return (
         <>
             <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
                 <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
+                    {/*Logout Button */}
                     <Button
                         fontSize={'sm'}
                         fontWeight={600}
@@ -38,13 +40,13 @@ const profiles = useSelector((state)=>state.profile_data)
                         _focus={{
                             bg: 'blue.500',
                         }}
+                        ml='7px'
                         fontFamily='revert-layer'
                         letterSpacing={1}
-                        onClick={handleLogout}
+                        onClick={handleLogoutSuccess}
                         >
-                        LOGOUT
                     </Button>
-                    <HStack spacing={8} alignItems={'center'}>
+                    <HStack  spacing={8} alignItems={'center'}>
                         <Box> <Image id='rotate_img' boxShadow={
                             '0px 1px 25px -5px rgb(66 153 225 / 100%), 0 10px 10px -5px rgb(66 153 225 / 43%)'} cursor={'pointer'}
                             objectFit={'cover'}
@@ -52,11 +54,10 @@ const profiles = useSelector((state)=>state.profile_data)
                             src='https://w7.pngwing.com/pngs/512/186/png-transparent-pomodoro-technique-timer-android-android-food-tomato-fruit-thumbnail.png' w="50px" h="50px" />
                         </Box>
                     </HStack>
-                    
-
 
                     <Flex alignItems={'center'} spacing={4}>
-                    <Button boxShadow={
+                    {/*Dark Mode Button */}
+                    <Button borderRadius={'full'} boxShadow={
                         '0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)'
                     } onClick={toggleColorMode}>
                     {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
@@ -73,10 +74,11 @@ const profiles = useSelector((state)=>state.profile_data)
                                 boxShadow={
                                     '0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)'
                                 }>
+                    {/* profile_img and profile_name*/}
                                 <Avatar
                                     size={'sm'}
-                                    src={profiles.profile_img}
-                                />{profiles.profile_name}<pre> </pre>
+                                    src={profile_img}
+                                /><pre>{profile_name}</pre>
                             </Button>
                     </Flex>
                 </Flex>
