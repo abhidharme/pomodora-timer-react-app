@@ -13,12 +13,12 @@ import { useSelector } from 'react-redux';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 
 
-export default function Navbar({handleLogoutSuccess}) {
+export default function Navbar({ handleLogoutSuccess }) {
     const { colorMode, toggleColorMode } = useColorMode();
 
     // take profile image and name from redux store
-const {profile_img} = useSelector((state)=>state.profile_data)
-const {profile_name} = useSelector((state)=>state.profile_data);
+    const { profile_img } = useSelector((state) => state.profile_data)
+    const { profile_name } = useSelector((state) => state.profile_data);
 
 
     return (
@@ -44,9 +44,9 @@ const {profile_name} = useSelector((state)=>state.profile_data);
                         fontFamily='revert-layer'
                         letterSpacing={1}
                         onClick={handleLogoutSuccess}
-                        >
+                    >
                     </Button>
-                    <HStack  spacing={8} alignItems={'center'}>
+                    <HStack spacing={8} alignItems={'center'}>
                         <Box> <Image id='rotate_img' boxShadow={
                             '0px 1px 25px -5px rgb(66 153 225 / 100%), 0 10px 10px -5px rgb(66 153 225 / 43%)'} cursor={'pointer'}
                             objectFit={'cover'}
@@ -56,30 +56,30 @@ const {profile_name} = useSelector((state)=>state.profile_data);
                     </HStack>
 
                     <Flex alignItems={'center'} spacing={4}>
-                    {/*Dark Mode Button */}
-                    <Button borderRadius={'full'} boxShadow={
-                        '0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)'
-                    } onClick={toggleColorMode}>
-                    {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-                  </Button>
+                        {/*Dark Mode Button */}
+                        <Button borderRadius={'full'} boxShadow={
+                            '0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)'
+                        } onClick={toggleColorMode}>
+                            {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+                        </Button>
                         <pre>  </pre>
-                            <Button
-                                as={Text}
-                                rounded={'full'}
-                                variant={'link'}
-                                cursor={'pointer'}
-                                minW={0}
-                                color="white"
-                                bg={'rgb(66 153 225)'}
-                                boxShadow={
-                                    '0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)'
-                                }>
-                    {/* profile_img and profile_name*/}
-                                <Avatar
-                                    size={'sm'}
-                                    src={profile_img}
-                                /><pre>{profile_name}</pre>
-                            </Button>
+                        <Button
+                            as={Text}
+                            rounded={'full'}
+                            variant={'link'}
+                            cursor={'pointer'}
+                            minW={0}
+                            color="white"
+                            bg={'rgb(66 153 225)'}
+                            boxShadow={
+                                '0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)'
+                            }>
+                            {/* profile_img and profile_name*/}
+                            <Avatar
+                                size={'sm'}
+                                src={profile_img}
+                            /><pre>{profile_name}</pre>
+                        </Button>
                     </Flex>
                 </Flex>
 

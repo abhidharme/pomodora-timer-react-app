@@ -30,6 +30,7 @@ export const Timer = () => {
    setNavigateToLogin('Welecome Guest');
 };
 
+//Navigate to login if user not login
 if(navigateToLogin == 'Welecome Guest'){
   return <Navigate to='/' />
 }
@@ -44,6 +45,7 @@ if(navigateToLogin == 'Welecome Guest'){
             boxShadow={
               '0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)'
           }>
+          {/*Google Logout Button*/}
             <GoogleLogout
             clientId={clientId}
             buttonText="Logout"

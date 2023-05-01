@@ -27,7 +27,7 @@ function Login() {
     const [showLogoutButton, setShowLogoutButton] = useState(false);
     const [navigateToTimer, setNavigateToTimer] = useState(false);
 
-    // use gapi script to d initialize some functions
+    // use gapi script to do initialize some functions
     useEffect(() => {
         gapi.load("client:auth2", () => {
             gapi.auth2.init({ clientId: clientId })
@@ -48,7 +48,7 @@ function Login() {
         setShowLogoutButton(true);
         setNavigateToTimer(res.profileObj.googleId)
     };
-   
+
     //failure function
     const handleLoginFailure = (res) => {
         console.log('Login Failed:', res);
@@ -67,6 +67,7 @@ function Login() {
         setShowLogoutButton(!navigateToTimer);
     };
 
+    //login successfull then navigate to timer page
     if (navigateToTimer) {
         return <Navigate to={'/timer'} />
     }
